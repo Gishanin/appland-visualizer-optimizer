@@ -1,0 +1,18 @@
+<%= link_to "new", new_appmap_json_path %>
+
+<h1 style='display:flex;justify-content:center;'>AppMaps</h1>
+<table>
+    <tr>
+      <th>№</th>
+      <th>Path</th>
+      <th>Created</th>
+      <th>Actions<th>
+    </tr>
+<% @jsons.each_with_index do |json_file, index| %>
+  <tr>
+    <td><%= index + 1 %>.</td>
+    <td><%= json_file.path %></td>
+    <td><%= json_file.created_at.strftime("%F")%>
+    <td><div><%= link_to "Show", appmap_json_path(json_file.id) %></div><div><%= link_to "Delete", appmap_json_path(json_file.id), method: :delete %></div></td>
+  </tr>
+<% end %>

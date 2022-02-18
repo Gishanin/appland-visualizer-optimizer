@@ -1,0 +1,9 @@
+<h3>New</h3>
+<%= link_to "Home", "/" %>
+<div>
+  <%= form_with url: appmap_jsons_url do |f| %>
+    <div><%= f.label :path, "Path to file or folder with files" %></div>
+    <div><%= f.text_field :path %></div>
+    <div><%= f.submit %></div>
+  <% end %>
+</div>
