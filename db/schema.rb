@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 2022_02_16_112953) do
 
   create_table "appmap_jsons", force: :cascade do |t|
     t.string "path"
+    t.string "name"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

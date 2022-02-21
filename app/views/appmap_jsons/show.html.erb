@@ -1,20 +1,25 @@
 <%= link_to "Home", "/" %>
-<h3 style='display:flex;justify-content:center;'><%= @appmap_json.path %></h3>
-
+<h3 style='display:flex;justify-content:center;'><%= @appmap_json.name %></h3>
+<% if @count_controllers != 0%>
 <div style='display:flex;flex-:column:row;'>
-  <div style=<%= "width:#{@count_controllers != 0 ? @count_controllers.to_f / @one_procent : 0}%;background:blue;height:80px;display:#{@count_controllers != 0 ? "flex" : "none"};justify-content:center;align-items:center;flex-direction:column" %>>
+  <div style=<%= "width:#{@count_controllers.to_f / @one_procent}%;background:blue;height:80px;justify-content:center;align-items:center;flex-direction:column" %>>
     <div><%= "Count: #{@count_controllers}" %></div>
     <div>App/Controllers</div>
     <div><%= "#{(@count_controllers.to_f / @one_procent).round}%" %></div>
   </div>
-  <div style=<%= "width:#{@count_helpers != 0 ? @count_helpers.to_f / @one_procent : 0}%;background:green;height:80px;display:#{@count_helpers != 0 ? "flex" : "none"};justify-content:center;align-items:center;flex-direction:column" %>>
+<% end %>
+  <% if @count_helpers != 0%>
+  <div style=<%= "width:#{@count_helpers.to_f / @one_procent}%;background:green;height:80px;justify-content:center;align-items:center;flex-direction:column" %>>
     <div><%= "Count: #{@count_helpers}" %></div>
     <div>App/Helpers</div>
     <div><%= "#{(@count_helpers.to_f / @one_procent).round}%" %></div>
   </div>
-  <div style=<%= "width:#{@count_models != 0 ? @count_models.to_f / @one_procent : 0}%;background:yellow;height:80px;display:#{@count_models != 0 ? "flex" : "none"};justify-content:center;align-items:center;flex-direction:column" %>>
+  <% end %>
+  <% if @count_models != 0%>
+  <div style=<%= "width:#{@count_models.to_f / @one_procent}%;background:yellow;height:80px;justify-content:center;align-items:center;flex-direction:column" %>>
     <div><%= "Count: #{@count_models}" %></div>
     <div>App/Models</div>
     <div><%= "#{(@count_models.to_f / @one_procent).round}%" %></div>
   </div>
+  <% end %>
 </div>

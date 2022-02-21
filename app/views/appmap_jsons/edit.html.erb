@@ -1,0 +1,9 @@
+<h3>Optimize</h3>
+<%= link_to "Home", "/" %>
+<div>
+  <%= form_with url: appmap_json_path(@appmap_json), method: :patch do |f| %>
+    <div><%= f.label :path, "How much to reduce the file" %></div>
+    <div><%= f.number_field :proc %></div>
+    <div><%= f.submit %></div>
+  <% end %>
+</div>

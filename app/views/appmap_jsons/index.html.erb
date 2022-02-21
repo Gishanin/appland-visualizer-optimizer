@@ -4,15 +4,21 @@
 <table>
     <tr>
       <th>№</th>
-      <th>Path</th>
+      <th>Name</th>
       <th>Created</th>
       <th>Actions<th>
     </tr>
 <% @jsons.each_with_index do |json_file, index| %>
   <tr>
     <td><%= index + 1 %>.</td>
-    <td><%= json_file.path %></td>
+    <td><%= json_file.name %></td>
     <td><%= json_file.created_at.strftime("%F")%>
-    <td><div><%= link_to "Show", appmap_json_path(json_file.id) %></div><div><%= link_to "Delete", appmap_json_path(json_file.id), method: :delete %></div></td>
+    <td>
+      <div><%= link_to "Show", appmap_json_path(json_file.id) %></div>
+      <div><%= link_to "Delete", appmap_json_path(json_file.id), method: :delete %></div>
+      <% if json_file.status === 'not_optimazed' %>
+        <div><%= link_to "Optimize", edit_appmap_json_path(json_file.id) %></div>
+      <% end %>
+    </td>
   </tr>
 <% end %>
